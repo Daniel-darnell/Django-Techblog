@@ -10,15 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-import os
 from pathlib import Path
+import os
 from cassandra import ConsistencyLevel
 from cassandra.cluster import Cluster
 from cassandra.auth import PlainTextAuthProvider
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -44,7 +43,7 @@ INSTALLED_APPS = [
     'blog'
 ]
 
-INSTALLED_APPS = ['django-cassandra-engine'] + INSTALLED_APPS
+INSTALLED_APPS = ['django_cassandra_engine'] + INSTALLED_APPS
 
 SESSION_ENGINE = 'django_cassandra_engine.sessions.backends.db'
 
@@ -96,9 +95,9 @@ DATABASES = {
         'NAME': 'tech_blog',
         'OPTIONS': {
             'connection' : {
-                'auth_provide': PlainTextAuthProvider('FqODmdrXxIRJqHyvFgOihOcv', 'AstraCS:FqODmdrXxIRJqHyvFgOihOcv:a814e668167aef080d1f5c2d5f5f824f26bab1d72caba6530c6bff725d12aacb'),
+                'auth_provider': PlainTextAuthProvider('FqODmdrXxIRJqHyvFgOihOcv', 'AstraCS:FqODmdrXxIRJqHyvFgOihOcv:a814e668167aef080d1f5c2d5f5f824f26bab1d72caba6530c6bff725d12aacb'),
                 'cloud': {
-                    'secure_connect_bundle': 'secure-connect-techblog'
+                    'secure_connect_bundle': 'secure-connect-techblog.zip'
                 }
             }
         }
